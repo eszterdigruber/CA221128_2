@@ -3,10 +3,30 @@
 //feladatlap f1
 Dolg01();
 Dolg02();
+Dolg03();
+
+void Dolg03()
+{
+    int pontszam = 0;
+
+    for (int i = 0; i < 8; i++)
+    {
+        int x = rnd.Next(10, 100);
+        int y = rnd.Next(10, 100);
+        if (rnd.Next(2) == 0) x *= -1;
+        if (rnd.Next(2) == 0) y *= -1;
+
+        Console.Write($"({i + 1}.) {x} + {y} = ");
+        int pred = int.Parse(Console.ReadLine());
+
+        if (pred == x + y) pontszam++;
+    }
+    Console.WriteLine($"az esetek {pontszam / 8f * 100:0.00}%-ában adtál helyes választ!");
+}
 
 void Dolg02()
 {
-    Console.Write("maximálisan megengedett sebesség (kmph): ");
+    Console.Write("\nmaximálisan megengedett sebesség (kmph): ");
     int limit = int.Parse(Console.ReadLine());
 
     if (limit <= 0 || limit > 50)
